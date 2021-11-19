@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
-
 namespace GenshinBuilder.Core.Models
 {
     public class Character
     {
+        public string Id { get; set; }
         public string Name { get; set; }
         public Vision Vision { get; set; }
         public Weapon Weapon { get; set; }

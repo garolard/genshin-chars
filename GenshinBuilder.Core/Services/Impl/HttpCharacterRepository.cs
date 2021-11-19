@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using GenshinBuilder.Core.Models;
@@ -18,7 +19,16 @@ namespace GenshinBuilder.Core.Services.Impl
         public async Task<IEnumerable<Character>> FindAll()
         {
             var res = await _client.GetStringAsync("https://api.genshin.dev/characters/all");
-            return JsonConvert.DeserializeObject<IList<Character>>(res);
+            var idsStr = await _client.GetStringAsync("https://api.genshin.dev/characters");
+
+            var characters = JsonConvert.DeserializeObject<IList<Character>>(res);
+            var ids = JsonConvert.DeserializeObject<string[]>(idsStr);
+
+            return ids.Zip(characters, (id, character) =>
+            {
+                character.Id = id;
+                return character;
+            });
         }
     }
 }

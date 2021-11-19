@@ -4,6 +4,7 @@ using System.Windows.Input;
 using GenshinBuilder.Core.Models;
 using GenshinBuilder.Core.Services;
 using MvvmCross.Commands;
+using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 
 namespace GenshinBuilder.Core.ViewModels
@@ -11,10 +12,12 @@ namespace GenshinBuilder.Core.ViewModels
     public class MainViewModel : MvxViewModel
     {
         private readonly IHttpCharacterRepository _repo;
+        private readonly IMvxNavigationService _navigationService;
 
-        public MainViewModel(IHttpCharacterRepository repo)
+        public MainViewModel(IHttpCharacterRepository repo, IMvxNavigationService navigationService)
         {
             _repo = repo;
+            _navigationService = navigationService;
         }
 
         public override async Task Initialize()
@@ -39,6 +42,11 @@ namespace GenshinBuilder.Core.ViewModels
             {
                 Characters.Add(c);
             }
+        });
+
+        public ICommand GoToDetailCommand => new MvxAsyncCommand<Character>(async (character) =>
+        {
+            await _navigationService.Navigate<CharacterDetailViewModel, Character>(character);
         });
     }
 }

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Cirrious.FluentLayouts.Touch;
 using CoreGraphics;
+using FFImageLoading.Cross;
 using Foundation;
 using GenshinBuilder.Core.Models;
 using MvvmCross.Binding.BindingContext;
@@ -26,14 +28,31 @@ namespace GenshinBuilder.iOS.Controls
         }
 
         private UILabel name;
+        private MvxCachedImageView icon;
 
         private void CreateLayout()
         {
-            Accessory = UITableViewCellAccessory.None;
-            name = new UILabel(new CGRect(10, 0, 75, 40));
-            name.AdjustsFontSizeToFitWidth = true;
-            name.Font = name.Font.WithSize(10);
-            ContentView.AddSubview(name);
+            name = new UILabel()
+            {
+                Font = UIFont.PreferredTitle3,
+                Lines = 0,
+                LineBreakMode = UILineBreakMode.WordWrap
+            };
+
+            icon = new MvxCachedImageView
+            {
+                DownsampleWidth = 64
+            };
+
+            ContentView.AddSubviews(icon, name);
+            ContentView.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
+
+            ContentView.AddConstraints(
+                icon.AtTopOf(ContentView, 4),
+                icon.AtLeftOf(ContentView, 4),
+                
+                name.ToRightOf(icon, 4),
+                name.WithSameCenterY(icon));
         }
 
         private void InitializeBinding()
@@ -42,6 +61,7 @@ namespace GenshinBuilder.iOS.Controls
             {
                 var set = this.CreateBindingSet<MyCell, Character>();
                 set.Bind(name).To(vm => vm.Name);
+                set.Bind(icon).For(i => i.ImagePath).To(vm => vm.Id).WithConversion("CharacterNameToIconUrl");
                 set.Apply();
             });
         }
@@ -73,6 +93,11 @@ namespace GenshinBuilder.iOS.Controls
 
         public MyTableViewSource(UITableView tableView, UITableViewCellStyle style, NSString cellIdentifier, IEnumerable<MvxBindingDescription> descriptions, UITableViewCellAccessory tableViewCellAccessory = UITableViewCellAccessory.None) : base(tableView, style, cellIdentifier, descriptions, tableViewCellAccessory)
         {
+        }
+
+        public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
+        {
+            return 72;
         }
 
         protected override UITableViewCell GetOrCreateCellFor(UITableView tableView, NSIndexPath indexPath, object item)
