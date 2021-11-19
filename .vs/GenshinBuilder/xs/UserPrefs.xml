@@ -1,0 +1,32 @@
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{820D9B3B-5A96-4C72-AE07-F3E2BA1492AB}|Default">
+  <MonoDevelop.Ide.ItemProperties.GenshinBuilder.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.5C058F33-8CB8-4453-864A-D408F9224355" />
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="GenshinBuilder.Core/Models/Character.cs" Line="5" Column="37" />
+      <File FileName="GenshinBuilder.iOS/Views/MainViewController.cs" Line="23" Column="116" />
+      <File FileName="GenshinBuilder.iOS/Controls/MyTableViewSource.cs" Line="56" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GenshinBuilder" expanded="True">
+            <Node name="GenshinBuilder.Core" expanded="True">
+              <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="Impl" expanded="True" />
+              </Node>
+              <Node name="ViewModels" expanded="True" />
+            </Node>
+            <Node name="GenshinBuilder.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

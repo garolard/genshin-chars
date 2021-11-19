@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenshinBuilder.Core", "GenshinBuilder.Core\GenshinBuilder.Core.csproj", "{7CD3334B-9AB0-46A6-A239-4C7C1127E33D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenshinBuilder.iOS", "GenshinBuilder.iOS\GenshinBuilder.iOS.csproj", "{820D9B3B-5A96-4C72-AE07-F3E2BA1492AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CD3334B-9AB0-46A6-A239-4C7C1127E33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CD3334B-9AB0-46A6-A239-4C7C1127E33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CD3334B-9AB0-46A6-A239-4C7C1127E33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CD3334B-9AB0-46A6-A239-4C7C1127E33D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{820D9B3B-5A96-4C72-AE07-F3E2BA1492AB}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{820D9B3B-5A96-4C72-AE07-F3E2BA1492AB}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{820D9B3B-5A96-4C72-AE07-F3E2BA1492AB}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
+		{820D9B3B-5A96-4C72-AE07-F3E2BA1492AB}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+EndGlobal
