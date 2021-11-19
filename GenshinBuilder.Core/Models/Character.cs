@@ -18,7 +18,7 @@ namespace GenshinBuilder.Core.Models
         public VisionKey VisionKey { get; set; }
         public WeaponType WeaponType { get; set; }
         public string Title { get; set; }
-        public string Gender { get; set; }
+        // public string Gender { get; set; }
         public string SpecialDish { get; set; }
     }
 }
